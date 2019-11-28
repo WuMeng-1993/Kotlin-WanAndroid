@@ -1,13 +1,17 @@
 package com.estsh.kotlin_wanandroid.main
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.estsh.kotlin_wanandroid.R
+import com.estsh.kotlin_wanandroid.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun getLayoutResId(): Int {
+        return R.layout.activity_main;
     }
+
+    override fun initView() {
+
+    }
+
+
 }
