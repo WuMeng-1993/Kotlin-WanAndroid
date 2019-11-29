@@ -43,7 +43,8 @@ class SplashActivity : BaseActivity() {
     }
 
     fun gotoMainActivity(): Unit {
-        gotoActivity(this,MainActivity().javaClass);
+        gotoActivity(this, MainActivity().javaClass);
         finish();
     }
+
 }

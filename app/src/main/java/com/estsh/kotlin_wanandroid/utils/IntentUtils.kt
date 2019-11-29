@@ -10,7 +10,7 @@ import android.content.Intent
  * desc:
  */
 
-fun gotoActivity(activity: Activity,clazz: Class<Any>) {
-    val intent = Intent(activity,clazz);
+fun gotoActivity(activity: Activity, clazz: Class<Any>) {
+    val intent: Intent = Intent(activity, clazz);
     activity.startActivity(intent);
 }
