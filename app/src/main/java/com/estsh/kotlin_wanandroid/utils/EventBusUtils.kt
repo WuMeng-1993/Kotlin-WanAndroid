@@ -12,15 +12,15 @@ class EventBusUtils {
 
     companion object {
 
-        fun register(obj:Any) {
+        fun register(obj: Any): Unit {
             EventBus.getDefault().register(obj);
         }
 
-        fun unregister(obj: Any) {
-            EventBus.getDefault().unregister(obj);
+        fun unregister(obj: Any): Unit {
+            EventBus.getDefault().unregister(this);
         }
 
-        fun post(obj: Any) {
+        fun post(obj: Any): Unit {
             EventBus.getDefault().post(obj);
         }
 
