@@ -1,6 +1,5 @@
 package com.estsh.kotlin_wanandroid.main
 
-import android.annotation.SuppressLint
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -9,12 +8,13 @@ import android.widget.TextView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
 import com.estsh.kotlin_wanandroid.R
-import com.estsh.kotlin_wanandroid.base.BaseActivity
+import com.estsh.kotlin_wanandroid.base.mvp.BaseMVPActivity
+import com.estsh.kotlin_wanandroid.main.contract.MainContract
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import de.hdodenhof.circleimageview.CircleImageView
 
-class MainActivity : BaseActivity(), View.OnClickListener {
+class MainActivity : BaseMVPActivity<MainContract.View, >, MainContract.View, View.OnClickListener {
 
     private lateinit var mainMenu: ImageView;
     private lateinit var mainSearch: ImageView;
@@ -49,10 +49,11 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
         usernameTextView.setOnClickListener(this);
 
-        navigationView.setNavigationItemSelectedListener(object : NavigationView.OnNavigationItemSelectedListener {
+        navigationView.setNavigationItemSelectedListener(object :
+            NavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(p0: MenuItem): Boolean {
                 closeDrawer();
-                when(p0.itemId) {
+                when (p0.itemId) {
                     // 轻松一刻
                     R.id.item_nav_happy_minute -> {
 
@@ -75,6 +76,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         })
     }
 
+    override fun initData() {
+        super.initData()
+    }
+
     /**
      * 打开侧滑
      */
@@ -93,5 +98,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 
 }
